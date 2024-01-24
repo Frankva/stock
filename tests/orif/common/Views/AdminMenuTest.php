@@ -43,11 +43,11 @@ class AdminMenuTest extends CIUnitTestCase
         $_SESSION['_ci_previous_url'] = 'url';
         $_SESSION['user_id'] = 0;
 
-        $result = $this->withSession()->get('user/admin/list_user');
+        $result = $this->withSession()->get('stock/admin/list_user');
         // Assertions
-        # $response = $result->response();
-        # $body = $response->getBody();
-        # $result->assertSee(lang('user_lang.title_user_list'), 'h3');
+        $response = $result->response();
+        $body = $response->getBody();
+        $result->assertSee(lang('user_lang.title_user_list'), 'h3');
         
 
         $warning = 'This function must be rewritten when the stock unit '
