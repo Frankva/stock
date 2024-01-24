@@ -59,7 +59,7 @@ jobs:
         CI_ENVIRONMENT: development
         app.baseURL: 'http://127.0.0.1:8080/'
         database.default.hostname: 127.0.0.1
-        database.default.database: ci4
+        database.default.database: ci4_test
         database.default.username: root
         database.default.password: root
         database.default.DBDriver: MySQLi
