@@ -17,7 +17,7 @@ jobs:
     environment: unit_test
     runs-on: ubuntu-latest
     services:
-      db:
+      db-test:
         image: mariadb
         env:
           MYSQL_DATABASE: ci4_test
@@ -25,6 +25,14 @@ jobs:
         ports:
           - 3306:3306
         options: --health-cmd="mariadb-admin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      db:
+        image: mariadb
+        env:
+          MYSQL_DATABASE: ci4
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3307:3307
+        options: --health-cmd="mariadb-admin ping --port=3307" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     - uses: actions/checkout@v3
 
@@ -59,12 +67,12 @@ jobs:
         CI_ENVIRONMENT: development
         app.baseURL: 'http://127.0.0.1:8080/'
         database.default.hostname: 127.0.0.1
-        database.default.database: ci4_test
+        database.default.database: ci4
         database.default.username: root
         database.default.password: root
         database.default.DBDriver: MySQLi
         database.default.DBPrefix:
-        database.default.port: 3306
+        database.default.port: 3307
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         TENANT_ID: ${{ secrets.TENANT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
