@@ -25,17 +25,17 @@ class FilterusrrequestBf implements FilterInterface
 	 */
 	public function before(RequestInterface $request, $arguments = null)
 	{
-	    if (is_numeric(strpos($request->uri->getPath(),"user/admin/save_user"))){
-	        $userId=0;
-	         (is_numeric((explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1])?$userId=(explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1]:null);
-	         return redirect()->to(base_url('stock/admin/save_user/'.$userId));
-        } else if (is_numeric(strpos($request->uri->getPath(),"user/admin/list_user"))){
-			return redirect()->to(base_url('stock/admin/list_user'));
-	   	} else if (is_numeric(strpos($request->uri->getPath(),"user/admin/delete_user"))) {
-            $userId=0;
-	         (is_numeric((explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1])?$userId=(explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1]:null);
-            return redirect()->to(base_url('stock/admin/delete_user/'.$userId));
-        }
+	    # if (is_numeric(strpos($request->uri->getPath(),"user/admin/save_user"))){
+	    #     $userId=0;
+	    #      (is_numeric((explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1])?$userId=(explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1]:null);
+	    #      return redirect()->to(base_url('stock/admin/save_user/'.$userId));
+        # } else if (is_numeric(strpos($request->uri->getPath(),"user/admin/list_user"))){
+		# 	return redirect()->to(base_url('stock/admin/list_user'));
+	   	# } else if (is_numeric(strpos($request->uri->getPath(),"user/admin/delete_user"))) {
+        #     $userId=0;
+	    #      (is_numeric((explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1])?$userId=(explode('/',$request->uri->getPath()))[count(explode('/',$request->uri->getPath()))-1]:null);
+        #     return redirect()->to(base_url('stock/admin/delete_user/'.$userId));
+        # }
 	}
 
 	/**
