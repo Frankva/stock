@@ -56,6 +56,8 @@ jobs:
         database.tests.DBDriver: MySQLi
         database.tests.port: 3306
         database.tests.DBPrefix:  
+        CI_ENVIRONMENT: development
+        app.baseURL: 'http://127.0.0.1:8080/'
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         TENANT_ID: ${{ secrets.TENANT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
