@@ -70,4 +70,4 @@ jobs:
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         GRAPH_USER_SCOPES: ${{ secrets.GRAPH_USER_SCOPES }}
         REDIRECT_URI: ${{ secrets.REDIRECT_URI }}
-      run:  vendor/codeigniter4/framework/spark migrate -n Stock && vendor/codeigniter4/framework/spark migrate -n User && vendor/bin/phpunit
+      run:  spark migrate -n Stock && spark migrate -n User && vendor/bin/phpunit
